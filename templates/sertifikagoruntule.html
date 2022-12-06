@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='/../assets/css/sertifika_style.css')}}">
+    
+</head>
+<body>
+    
+    
+    <button class="p_button" onclick="window.print()">SERTİFİKAYI YAZDIR</button>
+    <button class="p_button" onclick="history.back()">GERİ DÖN</button>
+    <br><br><br>
+
+    
+    <!-- bunlar sadece deneme yazıları ama sonradan veriler flask üzerinden gelecek -->
+
+
+    <div id="container" >
+        <img src="{{ url_for('static',filename='/../assets/images/cert.png')}}" alt=" sertifika template görseli yüklenemedi" >
+        
+
+        <div id="name_surname">
+
+            <p >{{data.name}} {{data.surname}}</p>
+        </div>
+
+        <div id="text"> <p>{{data.event_time}} tarihinde {{data.event_company}} tarafından düzenlenen 
+            {{data.event_name}} etkinliğine katılarak bu sertifikayı almaya hak kazanmıştır. </p>
+        </div>
+
+        
+        <p id="department_leader_title">Bölüm(ler)</p>
+        <p id="department_leader">{{bolumler}}</p>
+
+
+        <p id="speaker_title">Konuşmacı </p>
+        <p id="speaker">{{data.event_speakers}}</p>
+
+
+        <div id="photo_container">
+            <img id="company_icon" src="{{ url_for('static',filename='/../assets/images/uploads/' + data.event_photo)}}" alt=" sertifika template görseli yüklenemedi" >    
+        </div>
+    </div> 
+</body>
+</html>
